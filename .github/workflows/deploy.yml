@@ -2,6 +2,10 @@
 name: Builld & deploy this Vite React app to github pages
 
 on:
+  pull_request:
+    branches:
+      - main
+
   push:
     branches:
       - main
@@ -37,11 +41,13 @@ jobs:
         run: npm run build
 
       - name: Upload Artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
