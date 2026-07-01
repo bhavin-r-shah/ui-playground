@@ -1,14 +1,6 @@
 # UI Playground
 
 ## Useful Data
-### Client Side Tooling
-https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_tools/Overview
-#### TODO - expand on this topic
-Environment — Tools that help you set up your development environment, such as installing and running other tools.
-Safety net — Tools that are useful during your code development.
-Transformation — Tools that transform code in some way, e.g., turning an intermediate language into JavaScript that a browser can understand.
-Post-development — Tools that are useful after you have written your code, such as testing and deployment tools.
-
 ### React Cheat Sheet
 - Hooks: https://react.dev/reference/react/hooks
 - Server Components: https://react.dev/reference/rsc/server-components
@@ -17,4 +9,12 @@ Post-development — Tools that are useful after you have written your code, suc
 
 ### CSS Cheat Sheet
 - Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+### Client Side Tooling
+https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_tools/Overview
+#### TODO - expand on this topic
+Environment — Tools that help you set up your development environment, such as installing and running other tools.
+Safety net — Tools that are useful during your code development.
+Transformation — Tools that transform code in some way, e.g., turning an intermediate language into JavaScript that a browser can understand.
+Post-development — Tools that are useful after you have written your code, such as testing and deployment tools.
   
