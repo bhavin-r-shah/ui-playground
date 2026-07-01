@@ -30,7 +30,7 @@ function GameBoard({ boardValues, handleClick, winningCombination }) {
     );
 }
 
-export default function App() {
+export default function TicTacToe() {
     const [boardValues, setBoardValues] = useState(['', '', '', '', '', '', '', '', '']);
     const [nextPlayer, setNextPlayer] = useState("X");
     const [winner, setWinner] = useState("");
@@ -114,7 +114,6 @@ export default function App() {
 
     return (
         <>
-            <h1>Tic Tac Toe</h1>
             {winner && <h2>Winner: {winner}</h2>}
             {!winner && <h2>Next Player: {nextPlayer}</h2>}
             <GameBoard boardValues={boardValues} handleClick={handleClick} winningCombination={winningCombination} />

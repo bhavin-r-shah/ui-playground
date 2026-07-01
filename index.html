@@ -1,43 +1,21 @@
-<html>
+<!-- Tell browsers to read this file using HTML5 rules -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Tell browsers to read text on this page using UTF-8 character encoding.
+     UTF-8 supports almost all characters used across languages, symbols, and emojis -->
+    <meta charset="UTF-8" />
+    <!-- Tells browsers to set the webpage width equal to the device screen width
+     and start zoomed at normal 100% size -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Icon to show in the browser tab. Default path is the public folder within the app -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Page title to show in the browser tab -->
+    <title>react-tic-tac-toe</title>
+  </head>
   <body>
-    <div id="app"></div>
- 
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
- 
-    <script type="text/jsx">
-      const app = document.getElementById("app")
- 
-      function Header({ title }) {
-        return <h1>{title ? title : "Default title"}</h1>
-      }
- 
-      function HomePage() {
-        const names = ["Ada Lovelace", "Grace Hopper", "Margaret Hamilton"]
- 
-        const [likes, setLikes] = React.useState(0)
- 
-        function handleClick() {
-          setLikes(likes + 1)
-        }
- 
-        return (
-          <div>
-            <Header title="Develop. Preview. Ship." />
-            <ul>
-              {names.map((name) => (
-                <li key={name}>{name}</li>
-              ))}
-            </ul>
- 
-            <button onClick={handleClick}>Like ({likes})</button>
-          </div>
-        )
-      }
- 
-      const root = ReactDOM.createRoot(app);
-      root.render(<HomePage />);
-    </script>
+    <!-- Root element of this app -->
+    <div id="root"></div>
+    <script type="module" src="./src/index.tsx"></script>
   </body>
 </html>
