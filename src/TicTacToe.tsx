@@ -23,7 +23,13 @@ function Square({ text, handleClick, winningCombination, id }: SquareProps) {
 }
 
 function HistoryStep({ text, handleClick}: HistoryStepProps) {
-    return <button onClick={handleClick}>{text}</button>;
+    return (
+        <button 
+            onClick={handleClick}
+            className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+            {text}
+        </button>
+    );
 }
 
 function GameBoard({ boardValues, handleClick, winningCombination }: GameBoardProps) {
@@ -125,7 +131,9 @@ export default function TicTacToe() {
         const isLatestStep = index === history.length - 1;
         return (
             <div key={index} style={{ marginBottom: '10px' }}>
-                {isLatestStep ? `You are at step ${index}` : <HistoryStep text={text} handleClick={() => goToStep(index)} />}
+                <h3>
+                    {isLatestStep ? `You are at step ${index}` : <HistoryStep text={text} handleClick={() => goToStep(index)} />}
+                </h3>
             </div>
         );
     });
@@ -133,7 +141,7 @@ export default function TicTacToe() {
     return (
         <>
             {winner && <h2>Winner: {winner}</h2>}
-            {!winner && <h2>Next Player: {nextPlayer}</h2>}
+            {!winner && <h3>Next Player: {nextPlayer}</h3>}
             <GameBoard boardValues={boardValues} handleClick={handleClick} winningCombination={winningCombination} />
             <div style={{ marginTop: '20px' }}>{ historySteps }</div>
         </>
