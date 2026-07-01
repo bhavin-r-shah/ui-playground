@@ -3,13 +3,13 @@ import { useState } from "react";
 type Tab = {
   value: string;
   name: string;
-  content: string;
+  content: any;
 }
 
 export default function Tabs({ tabs }: { tabs: Tab[] }) {
   const [activeTab, setActiveTab] = useState(tabs[0].value);
 
-  const activeTabData = tabs.find((tab) => tab.value === activeTab);
+  const activeTabData = tabs.find((tab) => tab.value === activeTab) ?? tabs[0];
 
   return (
     <div className="w-full max-w-3xl">
