@@ -133,7 +133,7 @@ export default function TicTacToe() {
     return (
         <>
             {winner && <h2>Winner: {winner}</h2>}
-            {!winner && <h2>Next Player: {nextPlayer}</h2>}
+            {!winner && <h3>Next Player: {nextPlayer}</h3>}
             <GameBoard boardValues={boardValues} handleClick={handleClick} winningCombination={winningCombination} />
             <div style={{ marginTop: '20px' }}>{ historySteps }</div>
         </>

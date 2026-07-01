@@ -1,10 +1,10 @@
 import TicTacToe from './TicTacToe'
+import Tabs from './Tabs';
 
 export default function App() {
     return (
-        <>
-            <h1>Tic Tac Toe</h1>
-            <TicTacToe />
+        <>        
+            <Tabs />
         </>
     );
 }
