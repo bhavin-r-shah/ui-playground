@@ -34,9 +34,6 @@ jobs:
           node-version: 20
           cache: "npm"
 
-      - name: Clean
-        run: npm run clean
-
       - name: Install dpendencies
         run: npm ci
 
