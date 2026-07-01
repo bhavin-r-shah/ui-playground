@@ -1,4 +1,4 @@
-# React + TypeScript + Vite
+# UI Playground
 
 ## Useful Data
 ### React Cheat Sheet

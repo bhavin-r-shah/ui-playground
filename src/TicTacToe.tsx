@@ -1,30 +1,48 @@
 import { useState } from 'react';
 
-function Square({ text, handleClick, winningCombination, id }) {
+type SquareProps = {
+    text: string;
+    handleClick: () => void;
+    winningCombination: number[];
+    id: number;
+};
+
+type HistoryStepProps = {
+    text: string;
+    handleClick: () => void;
+};
+
+type GameBoardProps = {
+    boardValues: string[];
+    handleClick: (id: number) => void;
+    winningCombination: number[];
+};
+
+function Square({ text, handleClick, winningCombination, id }: SquareProps) {
     return <button style={{ backgroundColor: winningCombination.includes(id) ? 'lightgreen' : 'white' }} className="square" onClick={handleClick}>{text}</button>;
 }
 
-function HistoryStep({ text, handleClick}) {
+function HistoryStep({ text, handleClick}: HistoryStepProps) {
     return <button onClick={handleClick}>{text}</button>;
 }
 
-function GameBoard({ boardValues, handleClick, winningCombination }) {
+function GameBoard({ boardValues, handleClick, winningCombination }: GameBoardProps) {
     return (
         <>
             <div className="board-row">
-                <Square winningCombination={winningCombination} id={0} key="0" text={boardValues[0]} handleClick={() => handleClick(0)} />
-                <Square winningCombination={winningCombination} id={1} key="1" text={boardValues[1]} handleClick={() => handleClick(1)} />
-                <Square winningCombination={winningCombination} id={2} key="2" text={boardValues[2]} handleClick={() => handleClick(2)} />
+                <Square winningCombination={winningCombination} id={0} key={0} text={boardValues[0]} handleClick={() => handleClick(0)} />
+                <Square winningCombination={winningCombination} id={1} key={1} text={boardValues[1]} handleClick={() => handleClick(1)} />
+                <Square winningCombination={winningCombination} id={2} key={2} text={boardValues[2]} handleClick={() => handleClick(2)} />
             </div>
             <div className="board-row">
-                <Square winningCombination={winningCombination} id={3} key="3" text={boardValues[3]} handleClick={() => handleClick(3)} />
-                <Square winningCombination={winningCombination} id={4} key="4" text={boardValues[4]} handleClick={() => handleClick(4)} />
-                <Square winningCombination={winningCombination} id={5} key="5" text={boardValues[5]} handleClick={() => handleClick(5)} />
+                <Square winningCombination={winningCombination} id={3} key={3} text={boardValues[3]} handleClick={() => handleClick(3)} />
+                <Square winningCombination={winningCombination} id={4} key={4} text={boardValues[4]} handleClick={() => handleClick(4)} />
+                <Square winningCombination={winningCombination} id={5} key={5} text={boardValues[5]} handleClick={() => handleClick(5)} />
             </div>
             <div className="board-row">
-                <Square winningCombination={winningCombination} id={6} key="6" text={boardValues[6]} handleClick={() => handleClick(6)} />
-                <Square winningCombination={winningCombination} id={7} key="7" text={boardValues[7]} handleClick={() => handleClick(7)} />
-                <Square winningCombination={winningCombination} id={8} key="8" text={boardValues[8]} handleClick={() => handleClick(8)} />
+                <Square winningCombination={winningCombination} id={6} key={6} text={boardValues[6]} handleClick={() => handleClick(6)} />
+                <Square winningCombination={winningCombination} id={7} key={7} text={boardValues[7]} handleClick={() => handleClick(7)} />
+                <Square winningCombination={winningCombination} id={8} key={8} text={boardValues[8]} handleClick={() => handleClick(8)} />
             </div>
         </>
     );
@@ -36,7 +54,7 @@ export default function TicTacToe() {
     const [winner, setWinner] = useState("");
     // 0th place is player who played current step, rest are board values after playing current step
     const [history, setHistory] = useState([['X', '', '', '', '', '', '', '', '', '']]);
-    const [winningCombination, setWinningCombination] = useState([]);
+    const [winningCombination, setWinningCombination] = useState<number[]>([]);
 
     const checkWinnner = (board: string[]) => {
         const winningCombinations = [
