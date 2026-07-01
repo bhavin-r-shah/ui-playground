@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "clean": "rm -rf dist package-lock.json node_modules",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
