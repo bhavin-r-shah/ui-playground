@@ -1,30 +1,12 @@
 import { useState } from "react";
-import TicTacToe from "./TicTacToe";
 
-const tabs = [
-  {
-    name: "Tic Tac Toe",
-    value: "tic-tac-toe",
-    content: <TicTacToe />,
-  },
-  {
-    name: "Company",
-    value: "company",
-    content: "Update company settings, billing, and team details.",
-  },
-  {
-    name: "Team Members",
-    value: "team",
-    content: "Invite, remove, and manage permissions for team members.",
-  },
-  {
-    name: "Billing",
-    value: "billing",
-    content: "View invoices, update payment method, and manage your plan.",
-  },
-];
+type Tab = {
+  value: string;
+  name: string;
+  content: string;
+}
 
-export default function Tabs() {
+export default function Tabs({ tabs }: { tabs: Tab[] }) {
   const [activeTab, setActiveTab] = useState(tabs[0].value);
 
   const activeTabData = tabs.find((tab) => tab.value === activeTab);
