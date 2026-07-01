@@ -10,7 +10,7 @@ on:
     branches:
       - main
 
-persmissions:
+permissions:
   contents: read
   pages: write
   id-token: write
